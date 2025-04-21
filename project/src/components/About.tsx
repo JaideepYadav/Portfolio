@@ -33,8 +33,7 @@ const About = () => {
               data structures, algorithms, and building applications that make a positive impact.
             </p>
             <p className="text-gray-700">
-              When I'm not coding, you can find me exploring new technologies, participating in coding competitions, 
-              or contributing to open-source projects. I'm always eager to learn and grow, both as a developer and as a person.
+              When I'm not coding, you can find me exploring new technologies, participating in coding competitions. I'm always eager to learn and grow, both as a developer and as a person.
             </p>
           </motion.div>
           
