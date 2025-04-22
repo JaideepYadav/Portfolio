@@ -4,13 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#4f46e5',
-        'primary-light': '#6366f1',
-        'secondary': '#0ea5e9',
+        primary: '#A5C9CA',         // pastel teal
+        'primary-light': '#D3E0DC', // lighter teal
+        secondary: '#F7D6E0',       // soft pink
+        accent: '#F9F3DF',          // cream
+        muted: '#B4C6A6',           // muted green
+        dark: '#3D5A80',            // muted blue
       },
       animation: {
         'bounce-slow': 'bounce 3s infinite',
-      }
+      },
     },
   },
   plugins: [],

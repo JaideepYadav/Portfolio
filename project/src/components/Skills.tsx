@@ -3,39 +3,32 @@ import { useEffect, useState } from 'react';
 
 interface Skill {
   name: string;
-  level: number;
   category: 'frontend' | 'backend' | 'other';
 }
 
 const skills: Skill[] = [
-  { name: 'C++', level: 90, category: 'backend' },
-  { name: 'Java', level: 85, category: 'backend' },
-  { name: 'Python', level: 80, category: 'backend' },
-  { name: 'HTML/CSS', level: 85, category: 'frontend' },
-  { name: 'JavaScript', level: 80, category: 'frontend' },
-  { name: 'React', level: 75, category: 'frontend' },
-  { name: 'Node.js', level: 70, category: 'backend' },
-  { name: 'SQL', level: 80, category: 'backend' },
-  { name: 'Data Structures', level: 90, category: 'other' },
-  { name: 'Algorithms', level: 85, category: 'other' },
-  { name: 'Problem Solving', level: 95, category: 'other' },
-  { name: 'Git/GitHub', level: 85, category: 'other' },
+  { name: 'C++', category: 'backend' },
+  { name: 'Java', category: 'backend' },
+  { name: 'Python', category: 'backend' },
+  { name: 'HTML/CSS', category: 'frontend' },
+  { name: 'JavaScript', category: 'frontend' },
+  { name: 'React', category: 'frontend' },
+  { name: 'Node.js', category: 'backend' },
+  { name: 'SQL', category: 'backend' },
+  { name: 'Data Structures', category: 'other' },
+  { name: 'Algorithms', category: 'other' },
+  { name: 'Problem Solving', category: 'other' },
+  { name: 'Git/GitHub', category: 'other' },
 ];
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'frontend' | 'backend' | 'other'>('all');
   const [visibleSkills, setVisibleSkills] = useState<Skill[]>(skills);
-  const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
-    if (activeTab === 'all') {
-      setVisibleSkills(skills);
-    } else {
-      setVisibleSkills(skills.filter(skill => skill.category === activeTab));
-    }
-    setAnimated(false);
-    const timer = setTimeout(() => setAnimated(true), 100);
-    return () => clearTimeout(timer);
+    setVisibleSkills(
+      activeTab === 'all' ? skills : skills.filter(skill => skill.category === activeTab)
+    );
   }, [activeTab]);
 
   return (
@@ -47,64 +40,45 @@ const Skills = () => {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">My Skills</h2>
-          <div className="w-20 h-1 bg-indigo-600 mx-auto mb-12"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">
+            My Skills
+          </h2>
+          <div className="w-20 h-1 bg-indigo-600 mx-auto mb-8"></div>
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1 bg-gray-200 rounded-lg">
-            <button 
-              onClick={() => setActiveTab('all')}
-              className={`px-4 py-2 rounded-md ${activeTab === 'all' ? 'bg-white shadow' : 'hover:bg-gray-100'} transition-all`}
-            >
-              All Skills
-            </button>
-            <button 
-              onClick={() => setActiveTab('frontend')}
-              className={`px-4 py-2 rounded-md ${activeTab === 'frontend' ? 'bg-white shadow' : 'hover:bg-gray-100'} transition-all`}
-            >
-              Frontend
-            </button>
-            <button 
-              onClick={() => setActiveTab('backend')}
-              className={`px-4 py-2 rounded-md ${activeTab === 'backend' ? 'bg-white shadow' : 'hover:bg-gray-100'} transition-all`}
-            >
-              Backend
-            </button>
-            <button 
-              onClick={() => setActiveTab('other')}
-              className={`px-4 py-2 rounded-md ${activeTab === 'other' ? 'bg-white shadow' : 'hover:bg-gray-100'} transition-all`}
-            >
-              Other
-            </button>
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex p-1 bg-gray-200 rounded-lg shadow-sm">
+            {['all', 'frontend', 'backend', 'other'].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab as typeof activeTab)}
+                className={`px-4 py-2 rounded-md text-sm font-medium capitalize ${
+                  activeTab === tab ? 'bg-white text-indigo-600 shadow' : 'hover:bg-gray-100 text-gray-600'
+                } transition-all`}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
+        {/* Skills Grid */}
+        <motion.div 
+          className="flex flex-wrap justify-center gap-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           {visibleSkills.map((skill, index) => (
-            <motion.div 
-              key={skill.name} 
-              initial={{ opacity: 0, y: 20 }}
-              animate={animated ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="skill-item"
+            <span
+              key={index}
+              className="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium shadow-sm hover:bg-indigo-200 transition"
             >
-              <div className="flex justify-between mb-2">
-                <h3 className="font-medium text-gray-800">{skill.name}</h3>
-                <span className="text-gray-600">{skill.level}%</span>
-              </div>
-              <div className="skill-bar">
-                <motion.div 
-                  className="skill-progress"
-                  initial={{ width: 0 }}
-                  animate={animated ? { width: `${skill.level}%` } : {}}
-                  transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-                ></motion.div>
-              </div>
-            </motion.div>
+              {skill.name}
+            </span>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
