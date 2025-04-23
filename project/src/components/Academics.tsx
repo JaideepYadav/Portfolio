@@ -20,7 +20,7 @@ const educationHistory: Education[] = [
   {
     degree: "Higher Secondary Education",
     institution: "Science Stream (PCM)",
-    year: "2018 - 2020",
+    year: "2019 - 2021",
     description: "Studied Physics, Chemistry, and Mathematics with a focus on developing analytical and problem-solving skills.",
     score: "93.6%"
   },
