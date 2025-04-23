@@ -175,7 +175,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="John Doe"
+                        placeholder="Jaideep"
                       />
                     </div>
                     <div>
@@ -190,7 +190,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="john@example.com"
+                        placeholder="jaideep@example.com"
                       />
                     </div>
                   </div>
