@@ -13,23 +13,23 @@ const educationHistory: Education[] = [
   {
     degree: "Bachelor of Technology",
     institution: "Computer Science Engineering",
-    year: "2020 - 2024",
+    year: "2022 - 2026",
     description: "Focused on computer science fundamentals, data structures, algorithms, and software development practices.",
-    score: "8.0 CGPA"
+    score: "8.66 CGPA"
   },
   {
     degree: "Higher Secondary Education",
     institution: "Science Stream (PCM)",
     year: "2018 - 2020",
     description: "Studied Physics, Chemistry, and Mathematics with a focus on developing analytical and problem-solving skills.",
-    score: "92.4%"
+    score: "93.6%"
   },
   {
     degree: "Secondary Education",
     institution: "CBSE Board",
     year: "2018",
     description: "Built a strong foundation in mathematics and science, sparking an interest in technology and computing.",
-    score: "89.6%"
+    score: "92%"
   }
 ];
 
@@ -97,28 +97,69 @@ const Academics = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 p-8 bg-indigo-50 rounded-lg"
-        >
-          <h3 className="text-2xl font-semibold mb-4 text-center text-indigo-600">Certifications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 bg-white rounded-lg shadow-sm">
-              <h4 className="font-medium text-gray-800 mb-2">Data Structures & Algorithms</h4>
-              <p className="text-gray-600 text-sm">Udemy</p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-sm">
-              <h4 className="font-medium text-gray-800 mb-2">Web Development Bootcamp</h4>
-              <p className="text-gray-600 text-sm">Coursera</p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-sm">
-              <h4 className="font-medium text-gray-800 mb-2">Java Programming Masterclass</h4>
-              <p className="text-gray-600 text-sm">Udemy</p>
-            </div>
-          </div>
-        </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.5, delay: 0.4 }}
+  className="mt-8 p-8 bg-indigo-50 rounded-lg"
+>
+  <h3 className="text-2xl font-semibold mb-4 text-center text-indigo-600">Certifications</h3>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <motion.a
+      href="/rmooc.pdf"
+      download
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow block"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <h4 className="font-medium text-gray-800 mb-2">R Programming</h4>
+      <p className="text-gray-600 text-sm">Coursera</p>
+    </motion.a>
+
+    <motion.a
+      href="/cloud_computing.pdf"
+      download
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow block"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.1 }}
+      viewport={{ once: true }}
+    >
+      <h4 className="font-medium text-gray-800 mb-2">Cloud Computing</h4>
+      <p className="text-gray-600 text-sm">NPTEL</p>
+    </motion.a>
+
+    <motion.a
+      href="/dsa_certificate.pdf"
+      download
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow block"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      viewport={{ once: true }}
+    >
+      <h4 className="font-medium text-gray-800 mb-2">Data Structures and Algorithms</h4>
+      <p className="text-gray-600 text-sm">Udemy</p>
+    </motion.a>
+
+  </div>
+</motion.div>
+
       </div>
     </section>
   );
