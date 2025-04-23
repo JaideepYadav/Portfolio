@@ -27,7 +27,7 @@ const educationHistory: Education[] = [
   {
     degree: "Secondary Education",
     institution: "CBSE Board",
-    year: "2018",
+    year: "2018 - 2019",
     description: "Built a strong foundation in mathematics and science, sparking an interest in technology and computing.",
     score: "92%"
   }
