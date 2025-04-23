@@ -34,7 +34,7 @@ const Hero = () => {
               />
             </h2>
             <p className="text-gray-600 mb-8 max-w-lg mx-auto md:mx-0">
-              gPassionate about building impactful software solutions with modern technologies. 
+              Passionate about building impactful software solutions with modern technologies. 
               Focused on creating efficient, scalable applications that solve real-world problems.
             </p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
